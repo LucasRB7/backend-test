@@ -1,9 +1,9 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Decimal128, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({name:'mercado'})
 export class Produto {
-    @PrimaryColumn('uuid')
-    id: string;
+    @PrimaryGeneratedColumn('increment')
+    id: number;
 
     @Column({name:'nome'})
     nome: string;
@@ -14,15 +14,10 @@ export class Produto {
     @Column({name:'quantidade'})
     quantidade: number;
 
-    @Column({name:'categoria'})
-    categoria: string;
-
     @CreateDateColumn({name:'created_at'})
-    createdAt: string;
+    createdAt: Date;
 
     @UpdateDateColumn({name:'updated_at'})
-    updatedAt: string;
+    updatedAt: Date;
 
-    @DeleteDateColumn({name:'deleted_at'})
-    deletedAt: string;
 }
